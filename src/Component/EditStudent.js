@@ -8,12 +8,11 @@ const EditStudent = ({ studentsFromStore, EditStudentAtStudent }) => {
     const [student, setStudent] = useState({ id: '', name: '', score: '' });
 
     useEffect(() => {
-        // ค้นหานักเรียนที่ตรงกับ id
-        const foundStudent = studentsFromStore.find(student => student.id === Number(id)); // ใช้ Number(id) เพราะ id ใน state เป็นหมายเลข
+        const foundStudent = studentsFromStore.find(student => student.id === Number(id)); 
         if (foundStudent) {
             setStudent(foundStudent);
         } else {
-            navigate('/'); // เปลี่ยนเส้นทางถ้าข้อมูลไม่พบ
+            navigate('/');  
         }
     }, [id, studentsFromStore, navigate]);
 
@@ -26,8 +25,8 @@ const EditStudent = ({ studentsFromStore, EditStudentAtStudent }) => {
 
     const onSubmitStudentForm = (event) => {
         event.preventDefault();
-        EditStudentAtStudent(student); // ส่งข้อมูลที่แก้ไขไปยัง Redux
-        navigate('/'); // เปลี่ยนเส้นทางไปที่หน้าโฮมหลังจากบันทึก
+        EditStudentAtStudent(student);  
+        navigate('/'); 
     };
 
     return (
